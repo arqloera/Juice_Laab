@@ -1,28 +1,4 @@
-[4:24 PM, 12/19/2025] David Loera: <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D_OBRA | Reporte Semanal</title>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <style>
-        :root {
-            --black: #000000;
-            --dark-gray: #1a1a1a;
-            --card-bg: #242424;
-            --accent-blue: #0099ff;
-            --whatsapp-green: #25D366;
-            --text-white: #ffffff;
-            --text-gray: #a0a0a0;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: #121212;
-            color: var(--text-white);
-     …
-[4:47 PM, 12/19/2025] David Loera: <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -32,62 +8,54 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
+    <link href="https://fonts.cdnfonts.com/css/geometos" rel="stylesheet">
+    
     <style>
         :root {
             --black: #000000;
             --dark-gray: #1a1a1a;
             --card-bg: #242424;
             --accent-blue: #0099ff;
-            --whatsapp-green: #25D366;
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
         }
 
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Geometos', sans-serif; /* Set to Geometos */
             background-color: #121212;
             color: var(--text-white);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            margin: 0; padding: 0;
+            display: flex; flex-direction: column; align-items: center;
             overflow-x: hidden;
         }
 
-        /* Container */
-        .app-wrapper {
-            width: 100%;
-            max-width: 420px;
-            padding-bottom: 120px;
-        }
+        .app-wrapper { width: 100%; max-width: 420px; padding-bottom: 120px; }
 
-        /* Sticky Logo Header */
+        /* CLEAN TOP BAR (Only Logo) */
         .top-bar {
             background-color: var(--black);
             width: 100%;
-            padding: 20px 0;
+            padding: 25px 0;
             display: flex;
             justify-content: center;
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
         }
 
-        .logo-text {
-            font-size: 1.4rem;
-            font-weight: 800;
-            letter-spacing: 5px;
-            color: var(--text-white);
+        /* Use your actual logo image file here */
+        .logo-img { 
+            height: 45px; 
+            width: auto;
         }
 
-        /* Hero Text */
-        header { padding: 35px 20px 20px 20px; }
-        header h1 { font-size: 1.9rem; margin: 0; letter-spacing: -0.5px; }
-        header p { color: var(--accent-blue); font-weight: 600; margin: 5px 0; font-size: 0.9rem; }
+        header { 
+            padding: 35px 20px; 
+            text-align: center; 
+        }
+        header h1 { font-size: 1.8rem; margin: 0; letter-spacing: 2px; text-transform: uppercase; }
+        header p { color: var(--accent-blue); font-weight: 600; margin: 5px 0; font-size: 0.85rem; }
 
-        /* Cards */
         .card {
             background-color: var(--card-bg);
             margin: 0 15px 20px 15px;
@@ -97,22 +65,15 @@
         }
 
         .card-title {
-            font-size: 1rem;
+            font-size: 0.8rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             color: var(--text-gray);
             margin-bottom: 20px;
             display: block;
         }
 
-        /* Progress Circles */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .stat-box { text-align: center; }
         .ring {
             width: 85px; height: 85px; border-radius: 50%;
@@ -122,151 +83,75 @@
         }
         .ring.active { border-color: var(--accent-blue); color: var(--accent-blue); }
 
-        .diff-tag {
-            background: rgba(0, 153, 255, 0.1);
-            color: var(--accent-blue);
-            padding: 12px;
-            border-radius: 8px;
-            text-align: center;
-            font-size: 0.85rem;
-            border: 1px solid rgba(0, 153, 255, 0.2);
-        }
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 15px; }
+        .img-thumb { aspect-ratio: 1/1; background: #333; border-radius: 8px; cursor: pointer; object-fit: cover; width: 100%; }
 
-        /* Image Gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-top: 15px;
-        }
-        .img-thumb {
-            aspect-ratio: 1/1;
-            background: #333;
-            border-radius: 8px;
-            cursor: pointer;
-            object-fit: cover;
-            width: 100%;
-        }
+        .critical-path { border-left: 3px solid var(--accent-blue); padding-left: 15px; }
+        .activity-item { margin-bottom: 10px; font-size: 0.9rem; }
 
-        /* Buttons */
-        .btn {
-            background: var(--accent-blue);
-            color: white;
-            text-decoration: none;
-            padding: 16px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            font-weight: 700;
-            margin-top: 10px;
-        }
-
-        /* Lightbox Overlay */
-        #lightbox {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-        #lightbox img { max-width: 100%; max-height: 80%; border-radius: 8px; border: 1px solid var(--accent-blue); }
-
-        /* Floating WhatsApp */
-        .wa-float {
-            position: fixed;
-            bottom: 30px; right: 20px;
-            background: var(--whatsapp-green);
-            width: 60px; height: 60px; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 32px; color: white;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            z-index: 1000;
-            text-decoration: none;
-        }
-
-        /* Bottom Progress Bar */
         .footer-nav {
             position: fixed; bottom: 0; width: 100%; max-width: 420px;
             background: var(--black); padding: 15px 20px; z-index: 900;
         }
-        .progress-track { height: 4px; background: #333; border-radius: 10px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--accent-blue); width: 65%; }
+        .progress-track { height: 6px; background: #333; border-radius: 10px; overflow: hidden; }
+        /* PROGRESS BAR SET TO 5% */
+        .progress-fill { height: 100%; background: var(--accent-blue); width: 5%; transition: width 1s ease-in-out; }
+
+        #lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center;
+        }
+        #lightbox img { max-width: 90%; max-height: 80%; border: 1px solid var(--accent-blue); }
     </style>
 </head>
 <body>
 
-<div id="lightbox" onclick="this.style.display='none'">
-    <img id="active-img" src="">
-</div>
-
-<a href="https://wa.me/YOURNUM" class="wa-float" target="_blank">
-    <i class="ph-fill ph-whatsapp-logo"></i>
-</a>
+<div id="lightbox" onclick="this.style.display='none'"><img id="active-img" src=""></div>
 
 <div class="app-wrapper">
     <div class="top-bar">
-        <div class="logo-text">D_OBRA</div>
+        <img src="aaab5c63-2b1d-4916-ad69-f3aa3dfcd8ed-1_all_86270.jpg" alt="D_OBRA" class="logo-img">
     </div>
 
     <header class="reveal">
         <h1>Reporte Semanal</h1>
-        <p>Semana #1 • 20 Diciembre 2025</p>
+        <p>Semana #12 • Proyecto Residencial</p>
     </header>
 
     <div class="card reveal">
-        <span class="card-title">Avance del Proyecto</span>
+        <span class="card-title">Avance de Obra</span>
         <div class="stats-grid">
             <div class="stat-box">
-                <div class="ring active">05%</div>
-                <small>Real</small>
+                <div class="ring active">5%</div> <small>REAL</small>
             </div>
             <div class="stat-box">
-                <div class="ring">03%</div>
-                <small>Programado</small>
+                <div class="ring">3%</div> <small>PLAN</small>
             </div>
-        </div>
-        <div class="diff-tag">
-            <i class="ph ph-warning-circle"></i> &nbsp; +1 Días de diferencia
         </div>
     </div>
 
     <div class="card reveal">
         <span class="card-title">Actividades Realizadas</span>
-        <ul style="padding-left: 20px; font-size: 0.9rem; color: var(--text-gray);">
-            <li>Finalización de  conexion de red sanitaria.</li>
-            <li>Inicio de preparacion de losa.</li>
-	    <li>Inicio de instalaciones electricas.</li>
-        </ul>
         <div class="gallery">
-            <img class="img-thumb" src="Primer dia.jpg">
-            <img class="img-thumb" src="Trazo Topografico.jpg">
-            <img class="img-thumb" src="Ranuras sanitarias.jpg">
-            <img class="img-thumb" src="Red sanitaria.jpg">
-            <img class="img-thumb" src="Desmantelamiento.jpg">
-            <img class="img-thumb" src="Preparacion de losa.jpg">
+            <img class="img-thumb" src="Desmantelamiento.jpg" onclick="showImg(this.src)">
+            <img class="img-thumb" src="Primer dia.jpg" onclick="showImg(this.src)">
+            <img class="img-thumb" src="Red sanitaria.jpg" onclick="showImg(this.src)">
         </div>
     </div>
 
     <div class="card reveal">
-        <span class="card-title">Contacto</span>
-        <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 20px;">
-            Pulse el botón para contactar directamente con el Project Manager asignado.
-        </p>
-        <a href="mailto:manager@d-obra.com" class="btn">
-            <i class="ph ph-envelope-simple"></i> Enviar Mensaje
-        </a>
+        <span class="card-title">Próximas Actividades</span>
+        <div class="critical-path">
+            <div class="activity-item">Excavación para cimentación</div>
+            <div class="activity-item" style="color: var(--accent-blue); font-weight: bold;">Ruta Crítica: Habilitado de acero</div>
+        </div>
     </div>
 </div>
 
 <div class="footer-nav">
-    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 5px;">
-        <span>Avance Total</span>
-        <span>05%</span>
+    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 5px; letter-spacing: 1px;">
+        <span>AVANCE GENERAL</span>
+        <span>5%</span>
     </div>
     <div class="progress-track">
         <div class="progress-fill"></div>
@@ -274,12 +159,7 @@
 </div>
 
 <script>
-    // Initialize Scroll Reveal
-    ScrollReveal().reveal('.reveal', { 
-        delay: 100, distance: '30px', origin: 'bottom', duration: 800, opacity: 0, easing: 'ease-out'
-    });
-
-    // Lightbox Logic
+    ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 800, opacity: 0 });
     function showImg(url) {
         document.getElementById('active-img').src = url;
         document.getElementById('lightbox').style.display = 'flex';
