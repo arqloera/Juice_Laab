@@ -81,29 +81,19 @@
         }
         .ring.active { border-color: var(--accent-blue); color: var(--accent-blue); }
 
-        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+        /* Gallery in its own card */
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
         .img-thumb { aspect-ratio: 1/1; background: #333; border-radius: 8px; cursor: pointer; object-fit: cover; width: 100%; }
 
-        /* Botón WhatsApp FAB configurado */
+        /* FAB WhatsApp */
         .wa-float {
-            position: fixed;
-            bottom: 100px;
-            right: 20px;
-            background-color: var(--whatsapp-green);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            z-index: 1000;
-            text-decoration: none;
-            transition: transform 0.3s;
+            position: fixed; bottom: 100px; right: 20px;
+            background-color: var(--whatsapp-green); color: white;
+            width: 60px; height: 60px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px; box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            z-index: 1000; text-decoration: none;
         }
-        .wa-float:hover { transform: scale(1.1); }
 
         #lightbox {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -112,8 +102,8 @@
         }
         #lightbox img { max-width: 95%; max-height: 85%; border-radius: 4px; box-shadow: 0 0 20px rgba(0,153,255,0.3); object-fit: contain; }
 
-        .critical-path { border-left: 3px solid var(--accent-blue); padding-left: 15px; }
-        .activity-item { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.4; }
+        .list-style { border-left: 3px solid var(--accent-blue); padding-left: 15px; }
+        .activity-item { margin-bottom: 12px; font-size: 0.9rem; line-height: 1.4; }
 
         .footer-nav {
             position: fixed; bottom: 0; width: 100%; max-width: 420px;
@@ -160,6 +150,18 @@
 
     <div class="card reveal">
         <span class="card-title">Actividades Realizadas</span>
+        <div class="list-style">
+            <div class="activity-item">Desmantelamiento de la losa</div>
+            <div class="activity-item">Trazo topográfico</div>
+            <div class="activity-item">Ranuras para Red sanitaria</div>
+            <div class="activity-item">Conexión a red sanitaria general</div>
+            <div class="activity-item">Limpieza, resanado y fondeado de losa (Instalaciones Eléctricas)</div>
+            <div class="activity-item">Encofrado de tubería sanitaria</div>
+        </div>
+    </div>
+
+    <div class="card reveal">
+        <span class="card-title">Evidencia Fotográfica</span>
         <div class="gallery">
             <img class="img-thumb" src="Desmantelamiento.jpg" onclick="openLightbox(this.src)">
             <img class="img-thumb" src="Primer dia.jpg" onclick="openLightbox(this.src)">
@@ -172,7 +174,7 @@
 
     <div class="card reveal">
         <span class="card-title">Próximas Actividades</span>
-        <div class="critical-path">
+        <div class="list-style">
             <div class="activity-item">
                 <strong style="color: var(--accent-blue); display: block;">Lunes:</strong>
                 Ingreso de Tablaroca (Ruta Crítica)
