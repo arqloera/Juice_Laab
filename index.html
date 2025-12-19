@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <link href="https://fonts.cdnfonts.com/css/geometos" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -21,7 +22,7 @@
         }
 
         body {
-            font-family: 'Geometos', sans-serif; /* Set to Geometos */
+            font-family: 'Nunito Sans', sans-serif; /* Body Font */
             background-color: #121212;
             color: var(--text-white);
             margin: 0; padding: 0;
@@ -29,9 +30,14 @@
             overflow-x: hidden;
         }
 
+        /* HEADERS USE GEOMETOS */
+        h1, h2, h3, .logo-text, .card-title, .ring {
+            font-family: 'Geometos', sans-serif;
+            text-transform: uppercase;
+        }
+
         .app-wrapper { width: 100%; max-width: 420px; padding-bottom: 120px; }
 
-        /* CLEAN TOP BAR (Only Logo) */
         .top-bar {
             background-color: var(--black);
             width: 100%;
@@ -43,9 +49,9 @@
             z-index: 1000;
         }
 
-        /* Use your actual logo image file here */
+        /* Updated Logo to match your GitHub Filename */
         .logo-img { 
-            height: 45px; 
+            height: 40px; 
             width: auto;
         }
 
@@ -53,8 +59,8 @@
             padding: 35px 20px; 
             text-align: center; 
         }
-        header h1 { font-size: 1.8rem; margin: 0; letter-spacing: 2px; text-transform: uppercase; }
-        header p { color: var(--accent-blue); font-weight: 600; margin: 5px 0; font-size: 0.85rem; }
+        header h1 { font-size: 1.8rem; margin: 0; letter-spacing: 2px; }
+        header p { color: var(--accent-blue); font-weight: 700; margin: 5px 0; font-size: 0.85rem; }
 
         .card {
             background-color: var(--card-bg);
@@ -66,7 +72,6 @@
 
         .card-title {
             font-size: 0.8rem;
-            text-transform: uppercase;
             letter-spacing: 1.5px;
             color: var(--text-gray);
             margin-bottom: 20px;
@@ -78,39 +83,66 @@
         .ring {
             width: 85px; height: 85px; border-radius: 50%;
             border: 5px solid #333; display: flex; align-items: center;
-            justify-content: center; font-size: 1.3rem; font-weight: 800;
+            justify-content: center; font-size: 1.3rem; 
             margin: 0 auto 10px;
         }
         .ring.active { border-color: var(--accent-blue); color: var(--accent-blue); }
 
-        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 15px; }
-        .img-thumb { aspect-ratio: 1/1; background: #333; border-radius: 8px; cursor: pointer; object-fit: cover; width: 100%; }
+        /* Gallery Grid */
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
+        .img-thumb { 
+            aspect-ratio: 1/1; 
+            background: #333; 
+            border-radius: 8px; 
+            cursor: pointer; 
+            object-fit: cover; 
+            width: 100%;
+            transition: transform 0.2s;
+        }
+        .img-thumb:hover { transform: scale(1.05); }
+
+        /* Lightbox (Click to Expand) */
+        #lightbox {
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); 
+            z-index: 9999; 
+            justify-content: center; 
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        #lightbox img { 
+            max-width: 95%; 
+            max-height: 85%; 
+            border-radius: 4px; 
+            box-shadow: 0 0 20px rgba(0,153,255,0.3);
+            object-fit: contain;
+        }
+        .close-hint { color: var(--text-gray); font-size: 0.8rem; margin-top: 15px; }
 
         .critical-path { border-left: 3px solid var(--accent-blue); padding-left: 15px; }
-        .activity-item { margin-bottom: 10px; font-size: 0.9rem; }
+        .activity-item { margin-bottom: 10px; font-size: 0.95rem; }
 
         .footer-nav {
             position: fixed; bottom: 0; width: 100%; max-width: 420px;
             background: var(--black); padding: 15px 20px; z-index: 900;
         }
         .progress-track { height: 6px; background: #333; border-radius: 10px; overflow: hidden; }
-        /* PROGRESS BAR SET TO 5% */
-        .progress-fill { height: 100%; background: var(--accent-blue); width: 5%; transition: width 1s ease-in-out; }
-
-        #lightbox {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center;
-        }
-        #lightbox img { max-width: 90%; max-height: 80%; border: 1px solid var(--accent-blue); }
+        .progress-fill { height: 100%; background: var(--accent-blue); width: 5%; }
     </style>
 </head>
 <body>
 
-<div id="lightbox" onclick="this.style.display='none'"><img id="active-img" src=""></div>
+<div id="lightbox" onclick="closeLightbox()">
+    <img id="active-img" src="">
+    <span class="close-hint">TAP ANYWHERE TO CLOSE</span>
+</div>
 
 <div class="app-wrapper">
     <div class="top-bar">
-        <img src="aaab5c63-2b1d-4916-ad69-f3aa3dfcd8ed-1_all_86270.jpg" alt="D_OBRA" class="logo-img">
+        <img src="LOGO D_OBRA.jpg" alt="D_OBRA" class="logo-img">
     </div>
 
     <header class="reveal">
@@ -122,10 +154,12 @@
         <span class="card-title">Avance de Obra</span>
         <div class="stats-grid">
             <div class="stat-box">
-                <div class="ring active">5%</div> <small>REAL</small>
+                <div class="ring active">5%</div>
+                <small>REAL</small>
             </div>
             <div class="stat-box">
-                <div class="ring">3%</div> <small>PLAN</small>
+                <div class="ring">3%</div>
+                <small>PLAN</small>
             </div>
         </div>
     </div>
@@ -133,9 +167,12 @@
     <div class="card reveal">
         <span class="card-title">Actividades Realizadas</span>
         <div class="gallery">
-            <img class="img-thumb" src="Desmantelamiento.jpg" onclick="showImg(this.src)">
-            <img class="img-thumb" src="Primer dia.jpg" onclick="showImg(this.src)">
-            <img class="img-thumb" src="Red sanitaria.jpg" onclick="showImg(this.src)">
+            <img class="img-thumb" src="Desmantelamiento.jpg" onclick="openLightbox(this.src)">
+            <img class="img-thumb" src="Primer dia.jpg" onclick="openLightbox(this.src)">
+            <img class="img-thumb" src="Red sanitaria.jpg" onclick="openLightbox(this.src)">
+            <img class="img-thumb" src="Ranuras sanitarias.jpg" onclick="openLightbox(this.src)">
+            <img class="img-thumb" src="Trazo Topografico.jpg" onclick="openLightbox(this.src)">
+            <img class="img-thumb" src="Preparacion de losa.jpg" onclick="openLightbox(this.src)">
         </div>
     </div>
 
@@ -143,13 +180,13 @@
         <span class="card-title">Próximas Actividades</span>
         <div class="critical-path">
             <div class="activity-item">Excavación para cimentación</div>
-            <div class="activity-item" style="color: var(--accent-blue); font-weight: bold;">Ruta Crítica: Habilitado de acero</div>
+            <div class="activity-item" style="color: var(--accent-blue); font-weight: 700;">Ruta Crítica: Habilitado de acero</div>
         </div>
     </div>
 </div>
 
 <div class="footer-nav">
-    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 5px; letter-spacing: 1px;">
+    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 5px; font-weight: 700;">
         <span>AVANCE GENERAL</span>
         <span>5%</span>
     </div>
@@ -159,10 +196,20 @@
 </div>
 
 <script>
+    // Animation
     ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 800, opacity: 0 });
-    function showImg(url) {
+
+    // Lightbox Functions
+    function openLightbox(url) {
         document.getElementById('active-img').src = url;
         document.getElementById('lightbox').style.display = 'flex';
+        // Prevent body scrolling while viewing image
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        document.getElementById('lightbox').style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
 </script>
 
