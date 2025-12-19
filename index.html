@@ -17,12 +17,13 @@
             --dark-gray: #1a1a1a;
             --card-bg: #242424;
             --accent-blue: #0099ff;
+            --whatsapp-green: #25D366;
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
         }
 
         body {
-            font-family: 'Nunito Sans', sans-serif; /* Body Font */
+            font-family: 'Nunito Sans', sans-serif;
             background-color: #121212;
             color: var(--text-white);
             margin: 0; padding: 0;
@@ -30,7 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* HEADERS USE GEOMETOS */
         h1, h2, h3, .logo-text, .card-title, .ring {
             font-family: 'Geometos', sans-serif;
             text-transform: uppercase;
@@ -49,16 +49,9 @@
             z-index: 1000;
         }
 
-        /* Updated Logo to match your GitHub Filename */
-        .logo-img { 
-            height: 40px; 
-            width: auto;
-        }
+        .logo-img { height: 40px; width: auto; }
 
-        header { 
-            padding: 35px 20px; 
-            text-align: center; 
-        }
+        header { padding: 35px 20px; text-align: center; }
         header h1 { font-size: 1.8rem; margin: 0; letter-spacing: 2px; }
         header p { color: var(--accent-blue); font-weight: 700; margin: 5px 0; font-size: 0.85rem; }
 
@@ -88,42 +81,39 @@
         }
         .ring.active { border-color: var(--accent-blue); color: var(--accent-blue); }
 
-        /* Gallery Grid */
         .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 15px; }
-        .img-thumb { 
-            aspect-ratio: 1/1; 
-            background: #333; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            object-fit: cover; 
-            width: 100%;
-            transition: transform 0.2s;
-        }
-        .img-thumb:hover { transform: scale(1.05); }
+        .img-thumb { aspect-ratio: 1/1; background: #333; border-radius: 8px; cursor: pointer; object-fit: cover; width: 100%; }
 
-        /* Lightbox (Click to Expand) */
-        #lightbox {
-            display: none; 
-            position: fixed; 
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); 
-            z-index: 9999; 
-            justify-content: center; 
+        /* Botón WhatsApp FAB configurado */
+        .wa-float {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            background-color: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
             align-items: center;
-            flex-direction: column;
-            cursor: pointer;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s;
         }
-        #lightbox img { 
-            max-width: 95%; 
-            max-height: 85%; 
-            border-radius: 4px; 
-            box-shadow: 0 0 20px rgba(0,153,255,0.3);
-            object-fit: contain;
+        .wa-float:hover { transform: scale(1.1); }
+
+        #lightbox {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.95); z-index: 9999; justify-content: center; align-items: center;
+            flex-direction: column; cursor: pointer;
         }
-        .close-hint { color: var(--text-gray); font-size: 0.8rem; margin-top: 15px; }
+        #lightbox img { max-width: 95%; max-height: 85%; border-radius: 4px; box-shadow: 0 0 20px rgba(0,153,255,0.3); object-fit: contain; }
 
         .critical-path { border-left: 3px solid var(--accent-blue); padding-left: 15px; }
-        .activity-item { margin-bottom: 10px; font-size: 0.95rem; }
+        .activity-item { margin-bottom: 12px; font-size: 0.95rem; line-height: 1.4; }
 
         .footer-nav {
             position: fixed; bottom: 0; width: 100%; max-width: 420px;
@@ -135,9 +125,13 @@
 </head>
 <body>
 
+<a href="https://wa.me/523311386600?text=Hola,%20tengo%20una%20duda%20sobre%20el%20Reporte%20Semanal%20de%20Obra." class="wa-float" target="_blank">
+    <i class="ph-fill ph-whatsapp-logo"></i>
+</a>
+
 <div id="lightbox" onclick="closeLightbox()">
     <img id="active-img" src="">
-    <span class="close-hint">TAP ANYWHERE TO CLOSE</span>
+    <span style="color: var(--text-gray); font-size: 0.8rem; margin-top: 15px;">TAP ANYWHERE TO CLOSE</span>
 </div>
 
 <div class="app-wrapper">
@@ -179,8 +173,13 @@
     <div class="card reveal">
         <span class="card-title">Próximas Actividades</span>
         <div class="critical-path">
-            <div class="activity-item">Excavación para cimentación</div>
-            <div class="activity-item" style="color: var(--accent-blue); font-weight: 700;">Ruta Crítica: Habilitado de acero</div>
+            <div class="activity-item">
+                <strong style="color: var(--accent-blue); display: block;">Lunes:</strong>
+                Ingreso de Tablaroca (Ruta Crítica)
+            </div>
+            <div class="activity-item">Llegar al 80% de salidas eléctricas</div>
+            <div class="activity-item">Colocación de muros de tablaroca (una cara)</div>
+            <div class="activity-item">Retiro de cancelería existente</div>
         </div>
     </div>
 </div>
@@ -196,14 +195,11 @@
 </div>
 
 <script>
-    // Animation
     ScrollReveal().reveal('.reveal', { delay: 150, distance: '30px', origin: 'bottom', duration: 800, opacity: 0 });
 
-    // Lightbox Functions
     function openLightbox(url) {
         document.getElementById('active-img').src = url;
         document.getElementById('lightbox').style.display = 'flex';
-        // Prevent body scrolling while viewing image
         document.body.style.overflow = 'hidden';
     }
 
