@@ -20,7 +20,7 @@
             --whatsapp-green: #25D366;
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
-            --gray-track: #333333; /* Color para el fondo del círculo */
+            --gray-track: #333333;
         }
 
         body {
@@ -85,27 +85,24 @@
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .stat-box { text-align: center; }
 
-        /* Estilos modificados para los círculos de progreso */
         .ring {
             width: 85px; height: 85px; border-radius: 50%;
             display: flex; align-items: center;
             justify-content: center; font-size: 1.3rem; 
             margin: 0 auto 10px;
             position: relative;
-            background-color: var(--card-bg); /* Fondo interno */
+            background-color: var(--card-bg);
         }
 
-        /* Efecto de borde de progreso usando conic-gradient */
         .ring-real {
             background: conic-gradient(var(--accent-blue) 5%, var(--gray-track) 0%);
-            padding: 5px; /* Esto crea el grosor del "borde" */
+            padding: 5px;
         }
         .ring-plan {
             background: conic-gradient(var(--text-white) 3%, var(--gray-track) 0%);
             padding: 5px;
         }
 
-        /* Círculo interno para el texto */
         .ring-inner {
             background: var(--card-bg);
             width: 100%;
@@ -167,7 +164,7 @@
         <div class="brand-identifier">
             <span class="brand-juice">Juice</span> <span class="brand-laab">Laab.</span>
         </div>
-        <p>Semana #12 • Proyecto Residencial</p>
+        <p>Semana #1 • Local Comercial</p>
     </header>
 
     <div class="card reveal">
