@@ -45,7 +45,7 @@
             height: 350px;
             background: #f0f8ff; /* Blanco Alicia, azul muy pálido */
             filter: blur(130px);
-            opacity: 0.1; /* Intensidad muy baja solicitada */
+            opacity: 0.1;
             z-index: -1;
             animation: floatGlow 12s infinite alternate ease-in-out;
             border-radius: 50%;
@@ -59,7 +59,7 @@
             height: 280px;
             background: #ffffff; /* Puro blanco */
             filter: blur(110px);
-            opacity: 0.05; /* Casi imperceptible */
+            opacity: 0.05;
             z-index: -1;
             animation: floatGlow 18s infinite alternate-reverse ease-in-out;
             border-radius: 50%;
@@ -192,15 +192,14 @@
         }
         .text-dim-item { color: var(--text-dim); font-weight: 400; }
 
-        /* GALERÍA MODIFICADA CON PIES DE FOTO */
+        /* GALERÍA */
         .gallery { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            gap: 12px; /* Un poco más de espacio */
+            gap: 12px;
             transform: translateZ(20px); 
         }
         
-        /* Contenedor individual de imagen y texto */
         .gallery-item {
             display: flex;
             flex-direction: column;
@@ -219,21 +218,18 @@
             transition: border-color 0.3s ease;
         }
         
-        /* Efecto hover en la imagen al tocar/hover el contenedor */
         .gallery-item:hover .img-thumb {
             border-color: rgba(0, 153, 255, 0.5);
         }
 
-        /* Estilo para el pie de foto */
         .img-caption {
-            font-size: 0.65rem; /* Texto pequeño solicitada */
+            font-size: 0.65rem;
             color: var(--text-gray);
             margin-top: 6px;
             line-height: 1.2;
-            /* Asegurar que el texto largo no rompa el grid */
             word-wrap: break-word;
             display: -webkit-box;
-            -webkit-line-clamp: 2; /* Máximo 2 líneas */
+            -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
             overflow: hidden;
         }
@@ -342,10 +338,10 @@
 
         <div class="partida-item">
             <div class="partida-header">
-                <span>Inst. Eléctricas</span>
-                <span>5%</span>
+                <span class="text-dim-item">Inst. Eléctricas</span>
+                <span class="text-dim-item">0%</span>
             </div>
-            <div class="partida-track"><div class="partida-fill" style="width: 5%"></div></div>
+            <div class="partida-track"><div class="partida-fill" style="width: 0%"></div></div>
         </div>
 
         <div class="partida-item">
@@ -396,7 +392,6 @@
     <div class="card reveal" data-tilt data-tilt-max="1" data-tilt-glare data-tilt-max-glare="0.05">
         <span class="card-title">Evidencia Fotográfica</span>
         <div class="gallery">
-            
             <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Desmantelamiento.jpg')">
                 <img class="img-thumb" src="Desmantelamiento.jpg" alt="Desmantelamiento">
                 <div class="img-caption">Desmantelamiento</div>
@@ -441,7 +436,6 @@
                 <img class="img-thumb" src="Limpieza losa.jpg" alt="Limpieza losa">
                 <div class="img-caption">Limpieza Losa</div>
             </div>
-
         </div>
     </div>
 
@@ -469,7 +463,6 @@
 </div>
 
 <script>
-    // Configuración de ScrollReveal (sensación de flotar al aparecer)
     ScrollReveal().reveal('.reveal', { 
         delay: 150, 
         distance: '30px', 
@@ -480,25 +473,22 @@
         easing: 'cubic-bezier(0.33, 1, 0.68, 1)' 
     });
 
-    // Inicializar VanillaTilt en tarjetas principales
     VanillaTilt.init(document.querySelectorAll(".card"), {
-        max: 2, // Inclinación sutil
+        max: 2,
         speed: 300,
         glare: true,
         "max-glare": 0.1,
         gyroscope: true 
     });
     
-    // Inicializar VanillaTilt individualmente en los objetos de la galería
     VanillaTilt.init(document.querySelectorAll(".gallery-item"), {
-        max: 8, // Más inclinación individual para dinamismo
+        max: 8,
         speed: 400,
-        scale: 1.03, // Pequeño zoom individual
+        scale: 1.03,
         glare: false,
         gyroscope: true
     });
 
-    // Animación de barras de partida al cargar
     document.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             const bars = document.querySelectorAll('.partida-fill');
