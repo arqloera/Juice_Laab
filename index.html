@@ -20,6 +20,7 @@
             --whatsapp-green: #25D366;
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
+            --gray-track: #333333; /* Color para el fondo del círculo */
         }
 
         body {
@@ -83,13 +84,37 @@
 
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .stat-box { text-align: center; }
+
+        /* Estilos modificados para los círculos de progreso */
         .ring {
             width: 85px; height: 85px; border-radius: 50%;
-            border: 5px solid #333; display: flex; align-items: center;
+            display: flex; align-items: center;
             justify-content: center; font-size: 1.3rem; 
             margin: 0 auto 10px;
+            position: relative;
+            background-color: var(--card-bg); /* Fondo interno */
         }
-        .ring.active { border-color: var(--accent-blue); color: var(--accent-blue); }
+
+        /* Efecto de borde de progreso usando conic-gradient */
+        .ring-real {
+            background: conic-gradient(var(--accent-blue) 5%, var(--gray-track) 0%);
+            padding: 5px; /* Esto crea el grosor del "borde" */
+        }
+        .ring-plan {
+            background: conic-gradient(var(--text-white) 3%, var(--gray-track) 0%);
+            padding: 5px;
+        }
+
+        /* Círculo interno para el texto */
+        .ring-inner {
+            background: var(--card-bg);
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
         .img-thumb { aspect-ratio: 1/1; background: #333; border-radius: 8px; cursor: pointer; object-fit: cover; width: 100%; }
@@ -149,11 +174,15 @@
         <span class="card-title">Avance de Obra</span>
         <div class="stats-grid">
             <div class="stat-box">
-                <div class="ring active">5%</div>
+                <div class="ring ring-real">
+                    <div class="ring-inner" style="color: var(--accent-blue);">5%</div>
+                </div>
                 <small>REAL</small>
             </div>
             <div class="stat-box">
-                <div class="ring">3%</div>
+                <div class="ring ring-plan">
+                    <div class="ring-inner">3%</div>
+                </div>
                 <small>PLAN</small>
             </div>
         </div>
@@ -180,6 +209,9 @@
             <img class="img-thumb" src="Ranuras sanitarias.jpg" onclick="openLightbox(this.src)">
             <img class="img-thumb" src="Trazo Topografico.jpg" onclick="openLightbox(this.src)">
             <img class="img-thumb" src="Preparacion de losa.jpg" onclick="openLightbox(this.src)">
+            <img class="img-thumb" src="Relleno de ranuras.jpeg" onclick="openLightbox(this.src)">
+            <img class="img-thumb" src="Relleno de ranuras 2.jpeg" onclick="openLightbox(this.src)">
+            <img class="img-thumb" src="Limpieza losa.jpg" onclick="openLightbox(this.src)">
         </div>
     </div>
 
