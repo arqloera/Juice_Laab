@@ -16,18 +16,19 @@
         :root {
             --black: #000000;
             --dark-gray: #1a1a1a;
-            /* Hacemos el fondo de la tarjeta semitransparente para el efecto Glassmorphism */
-            --card-bg: rgba(36, 36, 36, 0.65); 
+            /* GLASSMORPHISM sutil */
+            --card-bg: rgba(28, 28, 28, 0.6); 
             --accent-blue: #0099ff;
             --whatsapp-green: #25D366;
             --text-white: #ffffff;
             --text-gray: #a0a0a0;
+            --text-dim: #666666;
             --gray-track: #333333;
         }
 
         body {
             font-family: 'Nunito Sans', sans-serif;
-            background-color: #0a0a0a; /* Fondo un poco más oscuro */
+            background-color: #0a0a0a; 
             color: var(--text-white);
             margin: 0; padding: 0;
             display: flex; flex-direction: column; align-items: center;
@@ -35,38 +36,38 @@
             min-height: 100vh;
         }
 
-        /* Fondo animado para dar profundidad detrás de los cristales */
+        /* FONDO MODIFICADO: Luces blancas/pálidas sutiles */
         .background-glow {
             position: fixed;
-            top: 20%;
-            left: -10%;
-            width: 300px;
-            height: 300px;
-            background: var(--accent-blue);
-            filter: blur(120px);
-            opacity: 0.25;
+            top: 15%;
+            left: -5%;
+            width: 350px;
+            height: 350px;
+            background: #f0f8ff; /* Blanco Alicia, azul muy pálido */
+            filter: blur(130px);
+            opacity: 0.1; /* Intensidad muy baja solicitada */
             z-index: -1;
-            animation: floatGlow 10s infinite alternate ease-in-out;
+            animation: floatGlow 12s infinite alternate ease-in-out;
             border-radius: 50%;
         }
         
         .background-glow-2 {
             position: fixed;
             bottom: 10%;
-            right: -10%;
-            width: 250px;
-            height: 250px;
-            background: #ffffff;
-            filter: blur(100px);
-            opacity: 0.1;
+            right: -5%;
+            width: 280px;
+            height: 280px;
+            background: #ffffff; /* Puro blanco */
+            filter: blur(110px);
+            opacity: 0.05; /* Casi imperceptible */
             z-index: -1;
-            animation: floatGlow 15s infinite alternate-reverse ease-in-out;
+            animation: floatGlow 18s infinite alternate-reverse ease-in-out;
             border-radius: 50%;
         }
 
         @keyframes floatGlow {
             0% { transform: translate(0, 0); }
-            100% { transform: translate(30px, 50px); }
+            100% { transform: translate(40px, 60px); }
         }
 
         h1, h2, h3, .logo-text, .card-title, .ring {
@@ -84,11 +85,11 @@
         .brand-juice { font-weight: 300; }
         .brand-laab { font-weight: 800; }
 
-        .app-wrapper { width: 100%; max-width: 420px; padding-bottom: 120px; position: relative; }
+        .app-wrapper { width: 100%; max-width: 420px; padding-bottom: 120px; position: relative; z-index: 1; }
 
         .top-bar {
-            background-color: rgba(0,0,0,0.8); /* Transparencia */
-            backdrop-filter: blur(10px); /* Efecto borroso detrás */
+            background-color: rgba(0,0,0,0.8); 
+            backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             width: 100%;
             padding: 25px 0;
@@ -111,16 +112,14 @@
             /* GLASSMORPHISM */
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08); /* Borde sutil brillante */
+            border: 1px solid rgba(255, 255, 255, 0.06);
             
-            margin: 0 15px 25px 15px; /* Un poco más de margen para que respiren */
+            margin: 0 15px 25px 15px;
             padding: 25px;
-            border-radius: 20px; /* Bordes más redondeados */
+            border-radius: 20px;
             
-            /* Sombra suave azulada */
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5), 0 0 15px rgba(0, 153, 255, 0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
             
-            /* Preparación para el 3D */
             transform-style: preserve-3d;
             transform: perspective(1000px);
         }
@@ -131,11 +130,10 @@
             color: var(--text-gray);
             margin-bottom: 20px;
             display: block;
-            /* Pequeño efecto 3D en el título */
             transform: translateZ(20px); 
         }
 
-        /* Estilos Avance General */
+        /* Avance General */
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; transform: translateZ(30px); }
         .stat-box { text-align: center; }
 
@@ -146,20 +144,20 @@
             margin: 0 auto 10px;
             position: relative;
             background-color: transparent; 
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
         }
 
         .ring-real {
-            background: conic-gradient(var(--accent-blue) 5%, rgba(255,255,255,0.05) 0%);
+            background: conic-gradient(var(--accent-blue) 5%, rgba(255,255,255,0.04) 0%);
             padding: 6px;
         }
         .ring-plan {
-            background: conic-gradient(var(--text-white) 3%, rgba(255,255,255,0.05) 0%);
+            background: conic-gradient(var(--text-white) 3%, rgba(255,255,255,0.04) 0%);
             padding: 6px;
         }
 
         .ring-inner {
-            background: #1a1a1a; /* Fondo sólido para legibilidad */
+            background: #1a1a1a; 
             width: 100%;
             height: 100%;
             border-radius: 50%;
@@ -168,7 +166,7 @@
             justify-content: center;
         }
 
-        /* Estilos Avance por Partida */
+        /* Avance por Partida */
         .partida-item { margin-bottom: 15px; transform: translateZ(20px); }
         .partida-header { 
             display: flex; 
@@ -178,7 +176,7 @@
             font-weight: 600;
         }
         .partida-track { 
-            background-color: rgba(255,255,255,0.1); 
+            background-color: rgba(255,255,255,0.08); 
             height: 8px; 
             border-radius: 4px; 
             overflow: hidden; 
@@ -189,24 +187,58 @@
             height: 100%; 
             border-radius: 4px;
             width: 0%; 
-            transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1); /* Curva de animación más elegante */
-            box-shadow: 0 0 10px var(--accent-blue); /* Glow en la barra */
+            transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1); 
+            box-shadow: 0 0 8px rgba(0, 153, 255, 0.7);
         }
-        .text-dim { color: #666; font-weight: 400; }
+        .text-dim-item { color: var(--text-dim); font-weight: 400; }
 
-        /* Galería */
-        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; transform: translateZ(20px); }
-        .img-thumb { 
-            aspect-ratio: 1/1; 
-            background: #333; 
-            border-radius: 8px; 
-            cursor: pointer; 
-            object-fit: cover; 
-            width: 100%; 
+        /* GALERÍA MODIFICADA CON PIES DE FOTO */
+        .gallery { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 12px; /* Un poco más de espacio */
+            transform: translateZ(20px); 
+        }
+        
+        /* Contenedor individual de imagen y texto */
+        .gallery-item {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            cursor: pointer;
             transition: transform 0.3s ease;
         }
-        .img-thumb:hover { transform: scale(1.05); border: 1px solid var(--accent-blue); }
 
+        .img-thumb { 
+            aspect-ratio: 1/1; 
+            background: rgba(255,255,255,0.05); 
+            border-radius: 8px; 
+            object-fit: cover; 
+            width: 100%; 
+            border: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+        
+        /* Efecto hover en la imagen al tocar/hover el contenedor */
+        .gallery-item:hover .img-thumb {
+            border-color: rgba(0, 153, 255, 0.5);
+        }
+
+        /* Estilo para el pie de foto */
+        .img-caption {
+            font-size: 0.65rem; /* Texto pequeño solicitada */
+            color: var(--text-gray);
+            margin-top: 6px;
+            line-height: 1.2;
+            /* Asegurar que el texto largo no rompa el grid */
+            word-wrap: break-word;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Máximo 2 líneas */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* WhatsApp */
         .wa-float {
             position: fixed; bottom: 100px; right: 20px;
             background-color: var(--whatsapp-green); color: white;
@@ -218,27 +250,30 @@
         }
         .wa-float:hover { transform: scale(1.1) rotate(10deg); }
 
+        /* Lightbox */
         #lightbox {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.95); 
-            backdrop-filter: blur(5px);
+            background: rgba(0,0,0,0.96); 
+            backdrop-filter: blur(8px);
             z-index: 9999; justify-content: center; align-items: center;
             flex-direction: column; cursor: pointer;
         }
-        #lightbox img { max-width: 95%; max-height: 85%; border-radius: 8px; box-shadow: 0 0 40px rgba(0,153,255,0.4); object-fit: contain; }
+        #lightbox img { max-width: 95%; max-height: 85%; border-radius: 8px; box-shadow: 0 0 40px rgba(0,0,0,0.8); object-fit: contain; }
 
+        /* Actividades */
         .list-style { border-left: 3px solid var(--accent-blue); padding-left: 15px; transform: translateZ(20px); }
         .activity-item { margin-bottom: 12px; font-size: 0.9rem; line-height: 1.4; }
 
+        /* Footer */
         .footer-nav {
             position: fixed; bottom: 0; width: 100%; max-width: 420px;
-            background: rgba(0,0,0,0.9);
+            background: rgba(0,0,0,0.92);
             backdrop-filter: blur(15px);
             padding: 15px 20px; z-index: 900;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            border-top: 1px solid rgba(255,255,255,0.08);
         }
-        .progress-track { height: 6px; background: #333; border-radius: 10px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--accent-blue); width: 5%; box-shadow: 0 0 10px var(--accent-blue); }
+        .progress-track { height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--accent-blue); width: 5%; box-shadow: 0 0 10px rgba(0, 153, 255, 0.5); }
     </style>
 </head>
 <body>
@@ -268,12 +303,12 @@
         <p>Semana #1 • Local Comercial</p>
     </header>
 
-    <div class="card reveal" data-tilt data-tilt-glare data-tilt-max-glare="0.2" data-tilt-max="3">
+    <div class="card reveal" data-tilt data-tilt-glare data-tilt-max-glare="0.15" data-tilt-max="3">
         <span class="card-title">Avance de Obra</span>
         <div class="stats-grid">
             <div class="stat-box">
                 <div class="ring ring-real">
-                    <div class="ring-inner" style="color: var(--accent-blue); text-shadow: 0 0 10px rgba(0,153,255,0.5);">5%</div>
+                    <div class="ring-inner" style="color: var(--accent-blue); text-shadow: 0 0 10px rgba(0,153,255,0.4);">5%</div>
                 </div>
                 <small>REAL</small>
             </div>
@@ -315,38 +350,38 @@
 
         <div class="partida-item">
             <div class="partida-header">
-                <span class="text-dim">Tablaroca</span>
-                <span class="text-dim">0%</span>
+                <span class="text-dim-item">Tablaroca</span>
+                <span class="text-dim-item">0%</span>
             </div>
             <div class="partida-track"><div class="partida-fill" style="width: 0%"></div></div>
         </div>
 
         <div class="partida-item">
             <div class="partida-header">
-                <span class="text-dim">Herrería</span>
-                <span class="text-dim">0%</span>
+                <span class="text-dim-item">Herrería</span>
+                <span class="text-dim-item">0%</span>
             </div>
             <div class="partida-track"><div class="partida-fill" style="width: 0%"></div></div>
         </div>
 
         <div class="partida-item">
             <div class="partida-header">
-                <span class="text-dim">Acabados</span>
-                <span class="text-dim">0%</span>
+                <span class="text-dim-item">Acabados</span>
+                <span class="text-dim-item">0%</span>
             </div>
             <div class="partida-track"><div class="partida-fill" style="width: 0%"></div></div>
         </div>
 
         <div class="partida-item">
             <div class="partida-header">
-                <span class="text-dim">Carpintería</span>
-                <span class="text-dim">0%</span>
+                <span class="text-dim-item">Carpintería</span>
+                <span class="text-dim-item">0%</span>
             </div>
             <div class="partida-track"><div class="partida-fill" style="width: 0%"></div></div>
         </div>
     </div>
 
-    <div class="card reveal" data-tilt data-tilt-max="3">
+    <div class="card reveal" data-tilt data-tilt-max="2">
         <span class="card-title">Actividades Realizadas</span>
         <div class="list-style">
             <div class="activity-item">Desmantelamiento de la losa</div>
@@ -358,22 +393,59 @@
         </div>
     </div>
 
-    <div class="card reveal" data-tilt data-tilt-max="3">
+    <div class="card reveal" data-tilt data-tilt-max="1" data-tilt-glare data-tilt-max-glare="0.05">
         <span class="card-title">Evidencia Fotográfica</span>
         <div class="gallery">
-            <img class="img-thumb" src="Desmantelamiento.jpg" onclick="openLightbox(this.src)">
-            <img class="img-thumb" src="Primer dia.jpg" onclick="openLightbox(this.src)">
-            <img class="img-thumb" src="Red sanitaria.jpg" onclick="openLightbox(this.src)">
-            <img class="img-thumb" src="Ranuras sanitarias.jpg" onclick="openLightbox(this.src)">
-            <img class="img-thumb" src="Trazo Topografico.jpg" onclick="openLightbox(this.src)">
-            <img class="img-thumb" src="Preparacion de losa.jpg" onclick="openLightbox(this.src)">
-            <img class="img-thumb" src="Relleno de ranuras.jpeg" onclick="openLightbox(this.src)">
-            <img class="img-thumb" src="Relleno de ranuras 2.jpeg" onclick="openLightbox(this.src)">
-            <img class="img-thumb" src="Limpieza losa.jpg" onclick="openLightbox(this.src)">
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Desmantelamiento.jpg')">
+                <img class="img-thumb" src="Desmantelamiento.jpg" alt="Desmantelamiento">
+                <div class="img-caption">Desmantelamiento</div>
+            </div>
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Primer dia.jpg')">
+                <img class="img-thumb" src="Primer dia.jpg" alt="Primer día">
+                <div class="img-caption">Primer Día</div>
+            </div>
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Red sanitaria.jpg')">
+                <img class="img-thumb" src="Red sanitaria.jpg" alt="Red sanitaria">
+                <div class="img-caption">Red Sanitaria</div>
+            </div>
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Ranuras sanitarias.jpg')">
+                <img class="img-thumb" src="Ranuras sanitarias.jpg" alt="Ranuras sanitarias">
+                <div class="img-caption">Ranuras Sanitarias</div>
+            </div>
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Trazo Topografico.jpg')">
+                <img class="img-thumb" src="Trazo Topografico.jpg" alt="Trazo Topográfico">
+                <div class="img-caption">Trazo Topográfico</div>
+            </div>
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Preparacion de losa.jpg')">
+                <img class="img-thumb" src="Preparacion de losa.jpg" alt="Preparación de losa">
+                <div class="img-caption">Preparación Losa</div>
+            </div>
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Relleno de ranuras.jpeg')">
+                <img class="img-thumb" src="Relleno de ranuras.jpeg" alt="Relleno de ranuras">
+                <div class="img-caption">Relleno Ranuras</div>
+            </div>
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Relleno de ranuras 2.jpeg')">
+                <img class="img-thumb" src="Relleno de ranuras 2.jpeg" alt="Relleno de ranuras 2">
+                <div class="img-caption">Relleno Ranuras 2</div>
+            </div>
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Limpieza losa.jpg')">
+                <img class="img-thumb" src="Limpieza losa.jpg" alt="Limpieza losa">
+                <div class="img-caption">Limpieza Losa</div>
+            </div>
+
         </div>
     </div>
 
-    <div class="card reveal" data-tilt data-tilt-max="3">
+    <div class="card reveal" data-tilt data-tilt-max="2">
         <span class="card-title">Próximas Actividades</span>
         <div class="list-style">
             <div class="activity-item" style="color: var(--accent-blue); font-weight: 700;">
@@ -397,27 +469,36 @@
 </div>
 
 <script>
-    // Configuración más dinámica del ScrollReveal
+    // Configuración de ScrollReveal (sensación de flotar al aparecer)
     ScrollReveal().reveal('.reveal', { 
-        delay: 200, 
-        distance: '40px', 
+        delay: 150, 
+        distance: '30px', 
         origin: 'bottom', 
-        duration: 1000, 
+        duration: 900, 
         opacity: 0,
-        scale: 0.95, // Efecto de Zoom al aparecer
-        easing: 'cubic-bezier(0.5, 0, 0, 1)' 
+        scale: 0.96, 
+        easing: 'cubic-bezier(0.33, 1, 0.68, 1)' 
     });
 
-    // Inicializar VanillaTilt en las tarjetas
+    // Inicializar VanillaTilt en tarjetas principales
     VanillaTilt.init(document.querySelectorAll(".card"), {
-        max: 3, // Grados de inclinación
-        speed: 400, // Velocidad de la animación
-        glare: true, // Efecto de brillo
-        "max-glare": 0.1, // Opacidad del brillo
-        gyroscope: true // Activar giroscopio en móviles
+        max: 2, // Inclinación sutil
+        speed: 300,
+        glare: true,
+        "max-glare": 0.1,
+        gyroscope: true 
+    });
+    
+    // Inicializar VanillaTilt individualmente en los objetos de la galería
+    VanillaTilt.init(document.querySelectorAll(".gallery-item"), {
+        max: 8, // Más inclinación individual para dinamismo
+        speed: 400,
+        scale: 1.03, // Pequeño zoom individual
+        glare: false,
+        gyroscope: true
     });
 
-    // Script para animar las barras al cargar
+    // Animación de barras de partida al cargar
     document.addEventListener("DOMContentLoaded", function() {
         setTimeout(() => {
             const bars = document.querySelectorAll('.partida-fill');
@@ -428,7 +509,7 @@
                     bar.style.width = targetWidth;
                 }, 100);
             });
-        }, 500);
+        }, 400);
     });
 
     function openLightbox(url) {
