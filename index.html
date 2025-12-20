@@ -9,7 +9,7 @@
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
     <link href="https://fonts.cdnfonts.com/css/geometos" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;700&family=Montserrat:wght@300;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -35,6 +35,17 @@
             font-family: 'Geometos', sans-serif;
             text-transform: uppercase;
         }
+
+        /* TIPOGRAFÍA JUICE LAAB */
+        .brand-identifier {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: 3px;
+            margin: 10px 0;
+            text-transform: uppercase;
+        }
+        .brand-juice { font-weight: 300; } /* Delgado */
+        .brand-laab { font-weight: 800; } /* Grueso / Negrita */
 
         .app-wrapper { width: 100%; max-width: 420px; padding-bottom: 120px; }
 
@@ -81,11 +92,9 @@
         }
         .ring.active { border-color: var(--accent-blue); color: var(--accent-blue); }
 
-        /* Gallery in its own card */
         .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
         .img-thumb { aspect-ratio: 1/1; background: #333; border-radius: 8px; cursor: pointer; object-fit: cover; width: 100%; }
 
-        /* FAB WhatsApp */
         .wa-float {
             position: fixed; bottom: 100px; right: 20px;
             background-color: var(--whatsapp-green); color: white;
@@ -115,7 +124,7 @@
 </head>
 <body>
 
-<a href="https://wa.me/523311386600?text=Hola,%20tengo%20una%20duda%20sobre%20el%20Reporte%20Semanal%20de%20Obra." class="wa-float" target="_blank">
+<a href="https://wa.me/523311386600?text=Hola,%20tengo%20una%20duda%20sobre%20el%20Reporte%20Semanal%20de%20Juice%20Laab." class="wa-float" target="_blank">
     <i class="ph-fill ph-whatsapp-logo"></i>
 </a>
 
@@ -131,6 +140,11 @@
 
     <header class="reveal">
         <h1>Reporte Semanal</h1>
+        
+        <div class="brand-identifier">
+            <span class="brand-juice">Juice</span> <span class="brand-laab">Laab.</span>
+        </div>
+        
         <p>Semana #12 • Proyecto Residencial</p>
     </header>
 
