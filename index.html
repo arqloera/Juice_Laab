@@ -43,7 +43,7 @@
             left: -5%;
             width: 350px;
             height: 350px;
-            background: #f0f8ff; /* Blanco Alicia, azul muy pálido */
+            background: #f0f8ff; 
             filter: blur(130px);
             opacity: 0.1;
             z-index: -1;
@@ -57,7 +57,7 @@
             right: -5%;
             width: 280px;
             height: 280px;
-            background: #ffffff; /* Puro blanco */
+            background: #ffffff;
             filter: blur(110px);
             opacity: 0.05;
             z-index: -1;
@@ -147,12 +147,14 @@
             box-shadow: 0 0 15px rgba(0,0,0,0.3);
         }
 
+        /* Actualizado para Semana 2: 19% Real */
         .ring-real {
-            background: conic-gradient(var(--accent-blue) 5%, rgba(255,255,255,0.04) 0%);
+            background: conic-gradient(var(--accent-blue) 19%, rgba(255,255,255,0.04) 0%);
             padding: 6px;
         }
+        /* Actualizado para Semana 2: 15% Plan */
         .ring-plan {
-            background: conic-gradient(var(--text-white) 3%, rgba(255,255,255,0.04) 0%);
+            background: conic-gradient(var(--text-white) 15%, rgba(255,255,255,0.04) 0%);
             padding: 6px;
         }
 
@@ -269,7 +271,7 @@
             border-top: 1px solid rgba(255,255,255,0.08);
         }
         .progress-track { height: 6px; background: rgba(255,255,255,0.1); border-radius: 10px; overflow: hidden; }
-        .progress-fill { height: 100%; background: var(--accent-blue); width: 5%; box-shadow: 0 0 10px rgba(0, 153, 255, 0.5); }
+        .progress-fill { height: 100%; background: var(--accent-blue); width: 19%; box-shadow: 0 0 10px rgba(0, 153, 255, 0.5); }
     </style>
 </head>
 <body>
@@ -296,7 +298,7 @@
         <div class="brand-identifier">
             <span class="brand-juice">Juice</span> <span class="brand-laab">Laab.</span>
         </div>
-        <p>Semana #1 • Local Comercial</p>
+        <p>Semana #2 • Local Comercial</p>
     </header>
 
     <div class="card reveal" data-tilt data-tilt-glare data-tilt-max-glare="0.15" data-tilt-max="3">
@@ -304,13 +306,13 @@
         <div class="stats-grid">
             <div class="stat-box">
                 <div class="ring ring-real">
-                    <div class="ring-inner" style="color: var(--accent-blue); text-shadow: 0 0 10px rgba(0,153,255,0.4);">5%</div>
+                    <div class="ring-inner" style="color: var(--accent-blue); text-shadow: 0 0 10px rgba(0,153,255,0.4);">19%</div>
                 </div>
                 <small>REAL</small>
             </div>
             <div class="stat-box">
                 <div class="ring ring-plan">
-                    <div class="ring-inner">3%</div>
+                    <div class="ring-inner">15%</div>
                 </div>
                 <small>PLAN</small>
             </div>
@@ -323,33 +325,33 @@
         <div class="partida-item">
             <div class="partida-header">
                 <span>Preliminares</span>
-                <span>90%</span>
+                <span>100%</span>
             </div>
-            <div class="partida-track"><div class="partida-fill" style="width: 90%"></div></div>
+            <div class="partida-track"><div class="partida-fill" style="width: 100%"></div></div>
         </div>
 
         <div class="partida-item">
             <div class="partida-header">
                 <span>Inst. Hidrosanitarias</span>
-                <span>20%</span>
+                <span>71%</span>
             </div>
-            <div class="partida-track"><div class="partida-fill" style="width: 20%"></div></div>
+            <div class="partida-track"><div class="partida-fill" style="width: 71%"></div></div>
         </div>
 
         <div class="partida-item">
             <div class="partida-header">
-                <span class="text-dim-item">Inst. Eléctricas</span>
-                <span class="text-dim-item">0%</span>
+                <span>Inst. Eléctricas</span>
+                <span>67%</span>
             </div>
-            <div class="partida-track"><div class="partida-fill" style="width: 0%"></div></div>
+            <div class="partida-track"><div class="partida-fill" style="width: 67%"></div></div>
         </div>
 
         <div class="partida-item">
             <div class="partida-header">
-                <span class="text-dim-item">Tablaroca</span>
-                <span class="text-dim-item">0%</span>
+                <span>Tablaroca</span>
+                <span>37%</span>
             </div>
-            <div class="partida-track"><div class="partida-fill" style="width: 0%"></div></div>
+            <div class="partida-track"><div class="partida-fill" style="width: 37%"></div></div>
         </div>
 
         <div class="partida-item">
@@ -380,74 +382,67 @@
     <div class="card reveal" data-tilt data-tilt-max="2">
         <span class="card-title">Actividades Realizadas</span>
         <div class="list-style">
-            <div class="activity-item">Desmantelamiento de la losa</div>
-            <div class="activity-item">Trazo topográfico</div>
-            <div class="activity-item">Ranuras para Red sanitaria</div>
-            <div class="activity-item">Conexión a red sanitaria general</div>
-            <div class="activity-item">Limpieza, resanado y fondeado de losa (Instalaciones Eléctricas)</div>
-            <div class="activity-item">Encofrado de tubería sanitaria</div>
+            <div class="activity-item">Retiro de cancelería</div>
+            <div class="activity-item">Tablaroca a una cara</div>
+            <div class="activity-item">Banca jardinera</div>
+            <div class="activity-item">Ramaleo eléctrico</div>
+            <div class="activity-item">Centro de cargas</div>
+            <div class="activity-item">Salidas Hidráulicas</div>
         </div>
     </div>
 
     <div class="card reveal" data-tilt data-tilt-max="1" data-tilt-glare data-tilt-max-glare="0.05">
         <span class="card-title">Evidencia Fotográfica</span>
         <div class="gallery">
-            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Desmantelamiento.jpg')">
-                <img class="img-thumb" src="Desmantelamiento.jpg" alt="Desmantelamiento">
-                <div class="img-caption">Desmantelamiento</div>
+            
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Banca Jardinera.jpg')">
+                <img class="img-thumb" src="Banca Jardinera.jpg" alt="Banca Jardinera">
+                <div class="img-caption">Banca Jardinera</div>
             </div>
             
-            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Primer dia.jpg')">
-                <img class="img-thumb" src="Primer dia.jpg" alt="Primer día">
-                <div class="img-caption">Primer Día</div>
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Bastidores Tablaroca.jpg')">
+                <img class="img-thumb" src="Bastidores Tablaroca.jpg" alt="Bastidores Tablaroca">
+                <div class="img-caption">Bastidores</div>
+            </div>
+
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Bastidores Tablaroca 2.jpg')">
+                <img class="img-thumb" src="Bastidores Tablaroca 2.jpg" alt="Bastidores Tablaroca 2">
+                <div class="img-caption">Bastidores 2</div>
             </div>
             
-            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Red sanitaria.jpg')">
-                <img class="img-thumb" src="Red sanitaria.jpg" alt="Red sanitaria">
-                <div class="img-caption">Red Sanitaria</div>
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Tablaroca una cara.jpg')">
+                <img class="img-thumb" src="Tablaroca una cara.jpg" alt="Tablaroca Una Cara">
+                <div class="img-caption">Tablaroca 1 Cara</div>
             </div>
             
-            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Ranuras sanitarias.jpg')">
-                <img class="img-thumb" src="Ranuras sanitarias.jpg" alt="Ranuras sanitarias">
-                <div class="img-caption">Ranuras Sanitarias</div>
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Tablaroca una cara 2 .jpg')">
+                <img class="img-thumb" src="Tablaroca una cara 2 .jpg" alt="Tablaroca Una Cara 2">
+                <div class="img-caption">Tablaroca 1 Cara 2</div>
             </div>
             
-            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Trazo Topografico.jpg')">
-                <img class="img-thumb" src="Trazo Topografico.jpg" alt="Trazo Topográfico">
-                <div class="img-caption">Trazo Topográfico</div>
+            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Pintado tuberia electrica.jpg')">
+                <img class="img-thumb" src="Pintado tuberia electrica.jpg" alt="Pintado Tubería">
+                <div class="img-caption">Pintado Tubería</div>
             </div>
-            
-            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Preparacion de losa.jpg')">
-                <img class="img-thumb" src="Preparacion de losa.jpg" alt="Preparación de losa">
-                <div class="img-caption">Preparación Losa</div>
-            </div>
-            
-            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Relleno de ranuras.jpeg')">
-                <img class="img-thumb" src="Relleno de ranuras.jpeg" alt="Relleno de ranuras">
-                <div class="img-caption">Relleno Ranuras</div>
-            </div>
-            
-            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Relleno de ranuras 2.jpeg')">
-                <img class="img-thumb" src="Relleno de ranuras 2.jpeg" alt="Relleno de ranuras 2">
-                <div class="img-caption">Relleno Ranuras 2</div>
-            </div>
-            
-            <div class="gallery-item" data-tilt data-tilt-max="5" onclick="openLightbox('Limpieza losa.jpg')">
-                <img class="img-thumb" src="Limpieza losa.jpg" alt="Limpieza losa">
-                <div class="img-caption">Limpieza Losa</div>
-            </div>
+
         </div>
     </div>
 
     <div class="card reveal" data-tilt data-tilt-max="2">
-        <span class="card-title">Próximas Actividades</span>
+        <span class="card-title">Actividades Pendientes</span>
         <div class="list-style">
             <div class="activity-item" style="color: var(--accent-blue); font-weight: 700;">
-                Ruta crítica: Ingreso de tablaroca
+                Ruta Crítica: Tablaroca segunda cara
             </div>
-            <div class="activity-item">Llegar al 80% de salidas eléctricas</div>
-            <div class="activity-item">Colocación de muros de tablaroca (una cara)</div>
-            <div class="activity-item">Retiro de cancelería existente</div>
+            <div class="activity-item" style="color: var(--accent-blue); font-weight: 700;">
+                Ruta Crítica: Marquesina
+            </div>
+            <div class="activity-item" style="color: var(--accent-blue); font-weight: 700;">
+                Ruta Crítica: Barra comercial
+            </div>
+            <div class="activity-item">Enchapado de columnas</div>
+            <div class="activity-item">Preparar ingreso pintura</div>
+            <div class="activity-item">Preparar ingreso de microcemento</div>
         </div>
     </div>
 </div>
@@ -455,7 +450,7 @@
 <div class="footer-nav">
     <div style="display: flex; justify-content: space-between; font-size: 0.7rem; margin-bottom: 5px; font-weight: 700;">
         <span>AVANCE GENERAL</span>
-        <span>5%</span>
+        <span>19%</span>
     </div>
     <div class="progress-track">
         <div class="progress-fill"></div>
